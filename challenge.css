@@ -1,4 +1,65 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@100;200;300;400;500;600;700;800;900&display=swap');
+body{
+    margin:0;
+    background-color: black;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.logo {
+    width: 200px;
+}
+.title {
+    color:white;
+    display: inline-block;
+    font-family: "Noto Sans Myanmar";
+    font-weight: 700;
+    font-style: bold;
+    width: 243px;
+}
+.mission {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.progress {
+    color:white;
+    display: inline-block;
+    font-family: "Noto Sans Myanmar";
+    font-weight: 700;
+    width: 30px;
+    text-align: center;
+}
+.description {
+    color:white;
+    display: inline-block;
+    font-family: "Noto Sans Myanmar";
+    font-weight: 700;
+    flex-grow: 1;
+    padding-left: 10px;
+}
+.status {
+    display: flex;
+    align-items: center;
+}
+.status span {
+    margin-left: 5px;
+}
+.complete {
+    display: inline-block;
+    font-family: "Noto Sans Myanmar";
+    font-weight: 700;
+    color: #ADFF2F; /* Light Green */
+}
+.incomplete {
+    display: inline-block;
+    font-family: "Noto Sans Myanmar";
+    font-weight: 700;
+    color: #FF6347; /* Tomato Red */
+}
+
+/* body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -29,4 +90,4 @@ button:hover {
 #mission {
     font-size: 24px;
     margin-top: 20px;
-}
+} */
