@@ -1,93 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@100;200;300;400;500;600;700;800;900&display=swap');
-body{
-    margin:0;
-    background-color: black;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
 }
+
 .container {
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.logo {
-    width: 200px;
+
+.logo img {
+    max-width: 100px;
+    height: auto;
 }
+
 .title {
-    color:white;
-    display: inline-block;
-    font-family: "Noto Sans Myanmar";
-    font-weight: 700;
-    font-style: bold;
-    width: 243px;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
 }
+
 .mission {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
 }
+
 .progress {
-    color:white;
-    display: inline-block;
-    font-family: "Noto Sans Myanmar";
-    font-weight: 700;
-    width: 30px;
-    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
 }
+
 .description {
-    color:white;
-    display: inline-block;
-    font-family: "Noto Sans Myanmar";
-    font-weight: 700;
-    flex-grow: 1;
-    padding-left: 10px;
+    flex: 1;
+    margin-right: 10px;
 }
+
 .status {
-    display: flex;
-    align-items: center;
-}
-.status span {
-    margin-left: 5px;
-}
-.complete {
-    display: inline-block;
-    font-family: "Noto Sans Myanmar";
-    font-weight: 700;
-    color: #ADFF2F; /* Light Green */
-}
-.incomplete {
-    display: inline-block;
-    font-family: "Noto Sans Myanmar";
-    font-weight: 700;
-    color: #FF6347; /* Tomato Red */
+    font-size: 18px;
 }
 
-/* body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+.status.complete {
+    color: green;
 }
 
-.container {
-    text-align: center;
+.status.incomplete {
+    color: red;
 }
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    margin-top: 20px;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-#mission {
-    font-size: 24px;
-    margin-top: 20px;
-} */

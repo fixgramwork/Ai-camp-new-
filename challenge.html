@@ -1,76 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>오늘의 미션</title>
-    <link rel="stylesheet" href="../challenge.css"/>
-</head>
-<body>
-    <div class="container">
-        <div class="logo"><img src="../images/Logo.svg"/></div>
-        <div class="title">오늘의 미션</div>        
-        <div class="mission">
-            <div class="progress">1/1</div>
-            <div class="description">어머니 안마해드리기</div>
-            <div class="status complete">✔<span>+3p</span></div>
-        </div>
-
-        <div class="mission">
-            <div class="progress">1/3</div>
-            <div class="description">가족과 취미생활 공유</div>
-            <div class="status incomplete">✘<span>+5p</span></div>
-        </div>
-
-        <div class="mission">
-            <div class="progress">2/4</div>
-            <div class="description">가족과 노래방</div>
-            <div class="status incomplete">✘<span>+10p</span></div>
-        </div>
-
-        <div class="mission">
-            <div class="progress">0/1</div>
-            <div class="description">아버지와 쇼츠</div>
-            <div class="status incomplete">✘<span>+4p</span></div>
-        </div>
-
-        <div class="mission">
-            <div class="progress">2/3</div>
-            <div class="description">가족과 같이 식사</div>
-            <div class="status incomplete">✘<span>+2p</span></div>
-        </div>
-    </div>
-</body>
-</html>
-
-<!-- <!DOCTYPE html>
-<html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>가족 미션 추천</title>
-    <link rel="stylesheet" href="challenge.css">
+    <link rel="stylesheet" href="../challenge.css" />
 </head>
 
 <body>
     <div class="container">
-        <h1>가족 미션 추천</h1>
-        <p id="mission">여기를 클릭하여 미션을 추천받으세요!</p>
-        <button onclick="getMission()">미션 추천 받기</button>
+        <div class="logo"><img src="../images/Logo.svg" /></div>
+        <div class="title">오늘의 미션</div>
+        <div id="missions">
+            <!-- 미션들이 여기에 동적으로 추가됩니다 -->
+        </div>
     </div>
 
     <script>
-        async function getMission() {
+        async function fetchMissions() {
             try {
-                const response = await fetch('/getMission');
-                const data = await response.json();
-                document.getElementById('mission').textContent = data.mission;
+                const response = await fetch('/api/getMissions'); // 서버의 API 엔드포인트로 요청
+                const missions = await response.json(); // JSON 형식으로 응답 받음
+
+                // 미션을 HTML로 추가
+                const missionsContainer = document.getElementById('missions');
+                missionsContainer.innerHTML = ''; // 초기화
+
+                missions.forEach(mission => {
+                    const missionHTML = `
+                        <div class="mission">
+                            <div class="progress">${mission.progress}</div>
+                            <div class="description">${mission.description}</div>
+                            <div class="status ${mission.complete ? 'complete' : 'incomplete'}">
+                                ${mission.complete ? '✔' : '✘'}
+                                <span>+${mission.points}p</span>
+                            </div>
+                        </div>
+                    `;
+                    missionsContainer.innerHTML += missionHTML;
+                });
             } catch (error) {
-                console.error('미션 추천 요청 중 에러:', error);
+                console.error('미션 데이터를 가져오는 중 에러:', error);
             }
         }
+
+        // 페이지 로드 시 미션 데이터 초기 로딩
+        window.onload = fetchMissions;
     </script>
 </body>
 
-</html> -->
+</html>
