@@ -1,75 +1,45 @@
 const express = require('express');
+const path = require('path');
 const app = express();
-const http = require('http');
-const socketIo = require('socket.io');
-const { exec } = require('child_process');
 const PORT = 3000;
 
+// 정적 파일 제공을 위한 설정
+app.use(express.static(__dirname));
 
-const server = http.createServer(app);
-const io = socketIo(server);
-
-io.on('connection', (socket) => {
-    console.log('New client connected');
-
-    socket.on('capture', () => {
-        exec('python detect.py', (error, stdout, stderr) => {
-            if (error) {
-                console.error(`exec error: ${error}`);
-                return;
-            }
-            socket.emit('detection-result', stdout);
-        });
-    });
-
-    socket.on('disconnect', () => {
-        console.log('Client disconnected');
-    });
-});
-
-app.use(express.static("/Users/kimminje/AI\ CAMP(NEW)"));
-
-//home
+// home
 app.get("/", (req, res) => {
-    res.sendFile("/Users/kimminje/AI-CAMP(NEW)/main.html");
-    res.sendFile("/Users/kimminje/AI-CAMP(NEW)/main.css");
+    res.sendFile(path.join(__dirname, 'main.html'));
 });
 
-//로그인
+// 로그인
 app.get("/login", (req, res) => {
-    res.sendFile("/Users/kimminje/AI-CAMP(NEW)/login.html");
-    res.sendFile("/Users/kimminje/AI-CAMP(NEW)/login.css");
+    res.sendFile(path.join(__dirname, 'login.html'));
 });
 
-//챌린지
+// 챌린지
 app.get("/challenge", (req, res) => {
-    res.sendFile("/Users/kimminje/AI-CAMP(NEW)/challenge.html");
-    res.sendFile("/Users/kimminje/AI-CAMP(NEW)/challenge.css");
+    res.sendFile(path.join(__dirname,'challenge.html'));
 });
 
-//랭크
+// 랭크
 app.get("/rank", (req, res) => {
-    res.sendFile("/Users/kimminje/AI-CAMP(NEW)/rank.html");
-    res.sendFile("/Users/kimminje/AI-CAMP(NEW)/rank.css");
+    res.sendFile(path.join(__dirname,'rank.html'));
 });
 
-//대전
+// 대전
 app.get("/pvp", (req, res) => {
-    res.sendFile("/Users/kimminje/AI-CAMP(NEW)/pvp.html");
-    res.sendFile("/Users/kimminje/AI-CAMP(NEW)/pvp.css");
+    res.sendFile(path.join(__dirname,'pvp.html'));
 });
 
-//목록, 공유
+// 목록, 공유
 app.get("/list", (req, res) => {
-    res.sendFile("/Users/kimminje/AI-CAMP(NEW)/list.html");
-    res.sendFile("/Users/kimminje/AI-CAMP(NEW)/list.css");
+    res.sendFile(path.join(__dirname,'list.html'));
 });
 
-//상점
+// 상점
 app.get("/store", (req, res) => {
-    res.sendFile("/Users/kimminje/AI-CAMP(NEW))/store.html");
-    res.sendFile("/Users/kimminje/AI-CAMP(NEW)/store.css");
-})
+    res.sendFile(path.join(__dirname,'store.html'));
+});
 
 app.listen(PORT, () => {
     console.log(`Server started at port: ${PORT}`);
