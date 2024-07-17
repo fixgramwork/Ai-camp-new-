@@ -114,7 +114,7 @@ const server = http.createServer((req, res) => {
         });
     }
     // /getMission 경로에 접근할 경우 랜덤 미션 전송
-    else if (req.url === '/challenge/getmission') {
+    else if (req.url === '/challenge') {
         const mission = getRandomMission();
         const responseData = JSON.stringify({ mission });
         res.writeHead(200, { 'Content-Type': 'application/json' });
