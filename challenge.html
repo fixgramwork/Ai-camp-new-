@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가족 미션 추천</title>
+    <link rel="stylesheet" href="challenge.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>가족 미션 추천</h1>
+        <p id="mission">여기를 클릭하여 미션을 추천받으세요!</p>
+        <button onclick="getMission()">미션 추천 받기</button>
+    </div>
+
+    <script>
+        async function getMission() {
+            try {
+                const response = await fetch('/getMission');
+                const data = await response.json();
+                document.getElementById('mission').textContent = data.mission;
+            } catch (error) {
+                console.error('미션 추천 요청 중 에러:', error);
+            }
+        }
+    </script>
+</body>
+
+</html>

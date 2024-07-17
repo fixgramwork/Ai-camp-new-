@@ -18,10 +18,6 @@ db.connect(err => {
     }
 });
 
-// 예제 사용자 추가
-const username = 'user';
-const plainPassword = 'pass';
-
 bcrypt.hash(plainPassword, saltRounds, (err, hash) => {
     if (err) {
         console.error('Error hashing password:', err);

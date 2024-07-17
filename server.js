@@ -47,7 +47,7 @@ app.listen(PORT, () => {
     console.log(`Server started at port: ${PORT}`);
 });
 
-app.post('/api/login', (req, res) => {
+app.post('/login', (req, res) => {
     const { username, password } = req.body;
 
     // 사용자 조회
