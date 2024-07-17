@@ -18,27 +18,27 @@ app.get("/login", (req, res) => {
 
 // 챌린지
 app.get("/challenge", (req, res) => {
-    res.sendFile(path.join(__dirname,'challenge.html'));
+    res.sendFile(path.join(__dirname, 'challenge.html'));
 });
 
 // 랭크
 app.get("/rank", (req, res) => {
-    res.sendFile(path.join(__dirname,'rank.html'));
+    res.sendFile(path.join(__dirname, 'rank.html'));
 });
 
 // 대전
 app.get("/pvp", (req, res) => {
-    res.sendFile(path.join(__dirname,'pvp.html'));
+    res.sendFile(path.join(__dirname, 'pvp.html'));
 });
 
 // 목록, 공유
 app.get("/list", (req, res) => {
-    res.sendFile(path.join(__dirname,'list.html'));
+    res.sendFile(path.join(__dirname, 'list.html'));
 });
 
 // 상점
 app.get("/store", (req, res) => {
-    res.sendFile(path.join(__dirname,'store.html'));
+    res.sendFile(path.join(__dirname, 'store.html'));
 });
 
 app.listen(PORT, () => {
